@@ -18,10 +18,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a style="font-size:20px;font-weight:bold;" class="nav-link" href="{{route('indexstudents')}}">Home <span class="sr-only"></a>
+                  <a style="font-size:20px;font-weight:bold;" class="nav-link" href="{{route('home')}}">Home <span class="sr-only"></a>
                 </li>
                 <li style="font-size:20px;font-weight:bold;" class="nav-item">
-                  <a class="nav-link" href="{{route('students')}}">Students</a>
+                  <a class="nav-link" href="{{route('studentsindex')}}">Students</a>
                 </li>
             </div>
           </nav>
