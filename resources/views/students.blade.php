@@ -6,7 +6,12 @@
 
 @section('content')
 <div class="container">
-    <a style="margin:10px 0px;" class="btn btn-lg btn-success" href="">Add New Student</a>
+    @if (Session::has('success'))
+    <div class="alert alert-success" role="alert">
+        {{ Session::get('success') }}
+    </div>
+    @endif
+    <a style="margin:10px 0px;" class="btn btn-lg btn-success" href="{{ route('studentcreate') }}">Add New Student</a>
     <table style="font-size:20px" class="table table-striped">
         <thead>
           <tr>
@@ -25,6 +30,11 @@
                 <td>{{ $info->studentname }}</td>
                 <td>{{ $info->studentmail }}</td>
                 <td>{{ $info->studentphone }}</td>
+                <td>
+                    <a style="margin:8px" href="{{ route('studentshow',$info['id']) }}"><i class="fa-solid fa-eye fa-sm"></i></a>
+                <a style="margin:8px" href="#"><i class="fa-solid fa-pen-to-square fa-sm"></i></a>
+                <a style="margin:8px" href="#"><i class="fa-solid fa-trash fa-sm"></i></a>
+            </td>
               </tr>
             @endforeach
             @else

@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('fontawesome-free-6.4.0-web/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/mystyle.css')}}">
+
     <title>home @yield('title')</title>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-info bg-info">
-            <a class="navbar-brand" href="#">َ<img style="width:50px;height:50px;" src="{{ asset('images/qalam icon.png')}}"/></a>
+            <a class="navbar-brand" href="#">َ<img style="margin:0px 20px;width:50px;height:50px;" src="{{ asset('images/qalam icon.png')}}"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,6 +42,7 @@
           </footer>
 
 
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+          <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+          <script src="{{ asset('fontawesome-free-6.4.0-web/js/all.min.js') }}"></script>
 </body>
 </html>
