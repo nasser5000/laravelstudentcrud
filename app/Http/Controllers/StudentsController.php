@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Http\Requests\createstudentrequest;
+use App\Http\Requests\updatestudentrequest;
 
 class StudentsController extends Controller
 {
@@ -57,24 +58,42 @@ class StudentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        //edit a student details
+        $dataforedit=Student::select("*")->find($id);
+        return view('edit',['data'=>$dataforedit]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(updatestudentrequest $request, $id)
     {
-        //
+        // update a student details
+        $datafromupdate['studentname'] = $request->student_name;
+        $datafromupdate['studentmail'] = $request->student_mail;
+        $datafromupdate['studentphone'] = $request->student_phone;
+        $datafromupdatet['updated_at'] = $request->updated_date;
+        Student::where(['id'=>$id])->update($datafromupdate);
+        return redirect()->route('studentsindex')->with(['success'=>'studented updated successfully']);
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        //delete student from storage
+
+        Student::where(['id'=>$id])->delete($id);
+        return redirect()->route('studentsindex')->with(['success'=>'studented deleted successfully']);
+
+    }
+    public function search($name){
+        $data=Student::where(['studentname'=>$name])->get();
+        return redirect()->route('studentsindex');
     }
 }
