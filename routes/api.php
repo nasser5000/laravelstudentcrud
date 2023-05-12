@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\StudentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/apistudent', function () {
+    return Student::all();
+});
+
+Route::get('/student/delete/{id}', [StudentsController::class,'destroy'])->name('studentdelete');

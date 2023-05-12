@@ -24,7 +24,7 @@ Add New student
         @enderror
         <div class="mb-3">
             <label for="student_phone" class="form-label">Student phone</label>
-            <input type="text" class="form-control" name="student_phone" id="student_phone" alue="{{ old('student_phone')}}">
+            <input type="text" class="form-control" name="student_phone" id="student_phone" value="{{ old('student_phone')}}">
           </div>
           @error('student_phone')
           <span class="text-danger">{{ $message }}</span>
